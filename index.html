@@ -204,11 +204,19 @@
 <body class="bg-offWhite font-sans text-deepBlue">
 
 <!-- BEGIN: Navbar -->
-<nav class="custom-navbar">
+<nav class="custom-navbar" id="main-nav">
   <div class="navbar-container">
     <div class="navbar-logos">
-      <img src="images/logo_ptach.png" alt="Punto Tach" class="nav-logo">
-      <img src="images/logo_basura0.png" alt="Basura Cero" class="nav-logo">
+      <img src="images/logo_ptach.svg"
+           alt="Punto Tach"
+           class="nav-logo"
+           width="auto"
+           height="44">
+      <img src="images/logo_basuracero.svg"
+           alt="Basura Cero Argentina"
+           class="nav-logo"
+           width="auto"
+           height="44">
     </div>
     <button class="hamburger" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
       <span class="hamburger-line"></span>
@@ -223,7 +231,7 @@
         <li><a href="#galeria" class="nav-link">Galería</a></li>
         <li><a href="#contacto" class="nav-link">Contacto</a></li>
       </ul>
-      <a href="#" class="nav-cta">Descargar guía gratuita</a>
+      <a href="#" class="nav-cta">Descargar guía</a>
     </div>
   </div>
 </nav>
@@ -939,6 +947,14 @@ if (floatWa && preventOverlapElements.length > 0) {
       floatWa.classList.remove('mobile-hidden');
     }
   });
+}
+
+// ── NAVBAR SCROLL EFFECT ──
+const nav = document.getElementById('main-nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
 }
 
 </script>
