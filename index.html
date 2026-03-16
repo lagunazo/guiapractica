@@ -4,6 +4,36 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Guía Práctica de Limpieza de Lagunas</title>
+
+<!-- Primary meta -->
+<meta name="description" content="Guía paso a paso para que municipios, organizaciones y comunidades puedan limpiar, censar y concientizar sobre los residuos en sus cuerpos de agua. Metodología Basura Cero Argentina.">
+<meta name="author" content="Paula Andrea Ramírez · Luciana Schoj · Punto Tach">
+<link rel="canonical" href="https://lagunazo.github.io/guiapractica/">
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://lagunazo.github.io/guiapractica/">
+<meta property="og:title"       content="Guía Práctica de Limpieza de Lagunas — Metodología Basura Cero">
+<meta property="og:description" content="Una guía gratuita y probada en territorio para limpiar, censar y concientizar sobre los residuos en lagunas, ríos y arroyos. Descargala gratis.">
+<meta property="og:image"       content="https://lagunazo.github.io/guiapractica/images/og_image.png">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt"   content="Guía Práctica de Limpieza de Lagunas — Basura Cero Argentina y Punto Tach">
+<meta property="og:locale"      content="es_AR">
+<meta property="og:site_name"   content="Lagunas Basura Cero">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:url"         content="https://lagunazo.github.io/guiapractica/">
+<meta name="twitter:title"       content="Guía Práctica de Limpieza de Lagunas — Metodología Basura Cero">
+<meta name="twitter:description" content="Una guía gratuita y probada en territorio para limpiar, censar y concientizar sobre los residuos en lagunas, ríos y arroyos.">
+<meta name="twitter:image"       content="https://lagunazo.github.io/guiapractica/images/og_image.png">
+<meta name="twitter:image:alt"   content="Guía Práctica de Limpieza de Lagunas">
+<meta name="twitter:site"        content="@puntotach">
+<meta name="twitter:creator"     content="@puntotach">
+
+<!-- WhatsApp optimizado -->
+<meta property="og:image:type" content="image/png">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
     tailwind.config = {
@@ -377,9 +407,46 @@
 <a class="bg-coralOrange hover:bg-[#d45d41] transition-all transform hover:scale-105 text-white px-10 py-5 rounded-custom font-bold shadow-lg" href="#">
             Descargar PDF
           </a>
-<button class="bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all text-white px-10 py-5 rounded-custom font-bold border border-white/30">
+<button id="share-btn-main" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all text-white px-10 py-5 rounded-custom font-bold border border-white/30">
             Compartir la guía
           </button>
+</div>
+
+<div class="share-section">
+  <p class="share-label">Compartí la guía</p>
+  <div class="share-buttons">
+
+    <button class="share-btn share-wa" id="share-whatsapp"
+            aria-label="Compartir por WhatsApp">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.526 5.858L.057 23.804a.5.5 0 0 0 .614.634l6.094-1.598A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.523-5.158-1.432l-.36-.214-3.733.979.997-3.646-.234-.374A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </button>
+
+    <button class="share-btn share-fb" id="share-facebook"
+            aria-label="Compartir en Facebook">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      Facebook
+    </button>
+
+    <button class="share-btn share-tw" id="share-twitter"
+            aria-label="Compartir en X / Twitter">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X / Twitter
+    </button>
+
+    <button class="share-btn share-ig" id="share-instagram"
+            aria-label="Ir a Instagram">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      Instagram
+    </button>
+
+    <button class="share-btn share-copy" id="share-copy"
+            aria-label="Copiar link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <span class="copy-text">Copiar link</span>
+    </button>
+
+  </div>
 </div>
 </div>
 </div>
@@ -620,6 +687,96 @@ if (contactForm) {
   });
 }
 
+// ── SHARE BUTTONS ──
+const SHARE_URL   = 'https://lagunazo.github.io/guiapractica/';
+const SHARE_TITLE = 'Guía Práctica de Limpieza de Lagunas';
+const SHARE_TEXT  = '📘 Descargá gratis la Guía Práctica de Limpieza de Lagunas de Basura Cero Argentina y Punto Tach. Una herramienta paso a paso para limpiar, censar y concientizar sobre los residuos en cuerpos de agua.';
+const WA_TEXT     = encodeURIComponent(SHARE_TEXT + '\n' + SHARE_URL);
+const FB_URL      = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(SHARE_URL)}`;
+const TW_URL      = `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(SHARE_URL)}&via=puntotach`;
+const WA_URL      = `https://wa.me/?text=${WA_TEXT}`;
+
+document.getElementById('share-whatsapp')?.addEventListener('click', () => {
+  window.open(WA_URL, '_blank', 'noopener');
+});
+
+document.getElementById('share-facebook')?.addEventListener('click', () => {
+  window.open(FB_URL, '_blank', 'noopener,width=600,height=400');
+});
+
+document.getElementById('share-twitter')?.addEventListener('click', () => {
+  window.open(TW_URL, '_blank', 'noopener,width=600,height=400');
+});
+
+document.getElementById('share-instagram')?.addEventListener('click', () => {
+  window.open('https://instagram.com/puntotach', '_blank', 'noopener');
+});
+
+document.getElementById('share-copy')?.addEventListener('click', async () => {
+  const btn      = document.getElementById('share-copy');
+  const label    = btn.querySelector('.copy-text');
+  try {
+    await navigator.clipboard.writeText(SHARE_URL);
+  } catch {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = SHARE_URL;
+    ta.style.position = 'fixed';
+    ta.style.opacity  = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  }
+  label.textContent = '¡Link copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    label.textContent = 'Copiar link';
+    btn.classList.remove('copied');
+  }, 2500);
+});
+
+// ── FLOATING WHATSAPP BUTTON OVERLAP PREVENTION ──
+const floatWa = document.querySelector('#whatsapp-float');
+const preventOverlapElements = document.querySelectorAll('#contacto, footer');
+
+if (floatWa && preventOverlapElements.length > 0) {
+  const observer = new IntersectionObserver((entries) => {
+    let isIntersecting = false;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) isIntersecting = true;
+    });
+    
+    if (window.innerWidth <= 768) {
+      if (isIntersecting) {
+        floatWa.classList.add('mobile-hidden');
+      } else {
+        floatWa.classList.remove('mobile-hidden');
+      }
+    } else {
+      floatWa.classList.remove('mobile-hidden');
+    }
+  }, { threshold: 0.1 });
+
+  preventOverlapElements.forEach(el => observer.observe(el));
+  
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      floatWa.classList.remove('mobile-hidden');
+    }
+  });
+}
+
 </script>
+
+<!-- Floating WhatsApp Button -->
+<a id="whatsapp-float"
+   href="https://wa.me/5492241569741?text=Hola%2C%20vi%20la%20Gu%C3%ADa%20Pr%C3%A1ctica%20de%20Limpieza%20de%20Lagunas%20y%20quer%C3%ADa%20consultar%20algo."
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.526 5.858L.057 23.804a.5.5 0 0 0 .614.634l6.094-1.598A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.523-5.158-1.432l-.36-.214-3.733.979.997-3.646-.234-.374A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span class="wa-tooltip">¿Consultas? Escribinos</span>
+</a>
 </body>
 </html>
