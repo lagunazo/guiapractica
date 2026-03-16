@@ -40,12 +40,46 @@
   z-index: 60;
 }
 
+.nav-logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
 .nav-logo {
   height: 44px;
   width: auto;
-  max-width: 140px;
+  max-width: 48px;
   display: block;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.nav-logo-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.90);
+  white-space: nowrap;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+}
+
+.nav-logo-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.20);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+@media (max-width: 768px) {
+  .nav-logo-name {
+    display: none;
+  }
+  .nav-logo {
+    height: 36px;
+  }
 }
 
 .nav-menu {
