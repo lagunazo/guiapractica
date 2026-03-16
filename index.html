@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guía Práctica de Limpieza de Lagunas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            deepBlue: '#1a4b6e',
+            forestGreen: '#2d6a4f',
+            coralOrange: '#e86f51',
+            offWhite: '#f8f6f1',
+          },
+          borderRadius: {
+            'custom': '16px',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Specific Layout Needs -->
+<style data-purpose="layout-elements">
+    .wave-separator {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+      transform: rotate(180deg);
+    }
+    .wave-separator svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+    }
+    .wave-separator-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-separator-top svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 60px;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-offWhite font-sans text-deepBlue">
+
+<!-- BEGIN: Navbar -->
+<nav class="custom-navbar">
+  <div class="navbar-container">
+    <div class="navbar-logos">
+      <img src="images/logo_ptach.png" alt="Punto Tech" class="nav-logo">
+      <img src="images/logo_basura0.png" alt="Basura Cero" class="nav-logo">
+    </div>
+    <button class="hamburger" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a href="#problema" class="nav-link">El Problema</a></li>
+        <li><a href="#guia" class="nav-link">La Guía</a></li>
+        <li><a href="#metodologia" class="nav-link">Metodología</a></li>
+        <li><a href="#galeria" class="nav-link">Galería</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+      <a href="#" class="nav-cta">Descargar guía gratuita</a>
+    </div>
+  </div>
+</nav>
+<!-- END: Navbar -->
+
+<!-- BEGIN: Hero Section -->
+<header class="relative min-h-[80vh] flex items-center overflow-hidden bg-deepBlue pt-[64px]" id="hero">
+<!-- Background Image with Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Laguna al atardecer" class="w-full h-full object-cover" src="images/hero.png"/>
+<div class="absolute inset-0 bg-deepBlue opacity-65"></div>
+</div>
+<div class="container mx-auto px-6 relative z-10 py-20">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+<!-- Content Side -->
+<div class="w-full lg:w-1/2 text-white">
+<span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider mb-6">METODOLOGÍAS LAGUNAS BASURA CERO</span>
+<h1 class="text-4xl lg:text-6xl font-bold leading-tight mb-6">Guía Práctica de Limpieza de Lagunas</h1>
+<p class="text-xl opacity-90 mb-8 max-w-xl">
+            Una herramienta integral para la gestión comunitaria de residuos en entornos hídricos, diseñada para transformar la acción local en impacto ambiental real.
+          </p>
+<div class="flex flex-wrap gap-4 items-center">
+<a class="bg-coralOrange hover:bg-[#d45d41] transition-colors text-white px-8 py-4 rounded-custom font-bold flex items-center gap-2" href="#">
+<svg class="h-5 w-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+              Descargar guía gratuita
+            </a>
+<span class="text-sm opacity-70">Licencia Creative Commons Atribución-NoComercial 4.0</span>
+</div>
+</div>
+<!-- Mockup Side -->
+<div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
+<div class="relative max-w-sm drop-shadow-2xl">
+<img alt="Guía Práctica Limpieza de Lagunas Mockup" class="w-full h-auto rounded-lg" src="images/mockup.png"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Organic Wave Separator -->
+<div class="wave-separator">
+<svg data-name="Layer 1" preserveaspectratio="none" viewbox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+<path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#f8f6f1"></path>
+</svg>
+</div>
+</header>
+<!-- END: Hero Section -->
+<!-- BEGIN: The Problem -->
+<section class="py-24 bg-offWhite" id="problema">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row items-center gap-16">
+<div class="w-full lg:w-1/2">
+<span class="text-coralOrange font-bold uppercase tracking-widest text-sm">¿Por qué importa?</span>
+<h2 class="text-3xl lg:text-4xl font-bold mt-4 mb-6">Los residuos ya están en nuestros cuerpos de agua</h2>
+<p class="text-lg mb-6 leading-relaxed opacity-80">
+            La contaminación por plásticos y desechos urbanos no es solo un problema estético; afecta directamente la biodiversidad, la calidad del agua y la salud de nuestras cuencas pampeanas. Los microplásticos ya forman parte de la cadena trófica de nuestras lagunas.
+          </p>
+<div class="bg-white p-6 rounded-custom border-l-4 border-deepBlue flex items-start gap-4 shadow-sm">
+<svg class="h-6 w-6 text-deepBlue mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<p class="text-deepBlue font-medium">Entender el impacto es el primer paso indispensable para la acción territorial efectiva.</p>
+</div>
+</div>
+<div class="w-full lg:w-1/2">
+<img alt="Contexto ambiental" class="w-full h-[400px] object-cover rounded-custom shadow-xl" src="images/image_2.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- END: The Problem -->
+<!-- BEGIN: What is the Guide -->
+<section class="py-20 bg-white" id="guia">
+<div class="container mx-auto px-6 text-center">
+<span class="bg-forestGreen text-white px-4 py-1 rounded-full text-xs font-bold uppercase">La Guía</span>
+<h2 class="text-3xl lg:text-4xl font-bold mt-6 mb-8 max-w-2xl mx-auto">Una herramienta práctica, probada en el territorio</h2>
+<p class="text-lg opacity-80 max-w-3xl mx-auto mb-16">
+        Desarrollada a partir de la experiencia de Punto Tech en la Laguna de Chascomús, esta guía sistematiza años de trabajo comunitario y metodologías de censo de residuos.
+      </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Feature 1 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-offWhite rounded-full flex items-center justify-center mb-4 shadow-sm text-deepBlue">
+<svg class="h-8 w-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="font-bold">Planillas de censo</p>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-offWhite rounded-full flex items-center justify-center mb-4 shadow-sm text-deepBlue">
+<svg class="h-8 w-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="font-bold">Encuestas comunitarias</p>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-offWhite rounded-full flex items-center justify-center mb-4 shadow-sm text-deepBlue">
+<svg class="h-8 w-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="font-bold">Conceptos Basura Cero</p>
+</div>
+<!-- Feature 4 -->
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 bg-offWhite rounded-full flex items-center justify-center mb-4 shadow-sm text-deepBlue">
+<svg class="h-8 w-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="font-bold">Recomendaciones GIRSU</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: What is the Guide -->
+<!-- BEGIN: Three Steps -->
+<section class="py-24 bg-deepBlue text-white relative" id="metodologia">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<span class="border border-white/30 px-3 py-1 rounded-full text-[10px] uppercase font-bold">La Metodología</span>
+<h2 class="text-3xl lg:text-4xl font-bold mt-4">Tres momentos, un impacto real</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Step 1 -->
+<div class="bg-white/5 border border-white/10 rounded-custom overflow-hidden flex flex-col hover:bg-white/10 transition-all">
+<img alt="Planificación" class="w-full h-48 object-cover opacity-80" src="images/paso_1.png"/>
+<div class="p-8">
+<span class="text-2xl font-bold text-coralOrange mb-2 block">01</span>
+<h3 class="text-xl font-bold mb-4">Planificación</h3>
+<p class="text-sm opacity-70">Definición de zonas, convocatorias y logística necesaria para una jornada segura y efectiva.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white/5 border border-white/10 rounded-custom overflow-hidden flex flex-col hover:bg-white/10 transition-all">
+<img alt="Ejecución" class="w-full h-48 object-cover opacity-80" src="images/paso_2.png"/>
+<div class="p-8">
+<span class="text-2xl font-bold text-coralOrange mb-2 block">02</span>
+<h3 class="text-xl font-bold mb-4">Ejecución</h3>
+<p class="text-sm opacity-70">El día del Lagunazo: censo de residuos, recolección clasificada y trabajo comunitario en campo.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white/5 border border-white/10 rounded-custom overflow-hidden flex flex-col hover:bg-white/10 transition-all">
+<img alt="Evaluación" class="w-full h-48 object-cover opacity-80" src="images/paso_3.png"/>
+<div class="p-8">
+<span class="text-2xl font-bold text-coralOrange mb-2 block">03</span>
+<h3 class="text-xl font-bold mb-4">Evaluación</h3>
+<p class="text-sm opacity-70">Procesamiento de datos, comunicación de resultados e incidencia en políticas públicas locales.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Three Steps -->
+<!-- BEGIN: Impact Figures -->
+<section class="bg-forestGreen py-20 text-white relative" data-purpose="impact-stats">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-2xl lg:text-3xl font-bold mb-2">Lo que se logró en una sola jornada</h2>
+<p class="opacity-80 mb-12">Lagunazo Chascomús · 21 de febrero de 2026</p>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white text-forestGreen p-8 rounded-custom shadow-lg">
+<p class="text-4xl font-bold mb-2">1.728</p>
+<p class="text-xs font-bold uppercase tracking-widest">Objetos censados</p>
+</div>
+<div class="bg-white text-forestGreen p-8 rounded-custom shadow-lg">
+<p class="text-4xl font-bold mb-2">842</p>
+<p class="text-xs font-bold uppercase tracking-widest">Plásticos</p>
+</div>
+<div class="bg-white text-forestGreen p-8 rounded-custom shadow-lg">
+<p class="text-4xl font-bold mb-2">120kg</p>
+<p class="text-xs font-bold uppercase tracking-widest">Basura Total</p>
+</div>
+<div class="bg-white text-forestGreen p-8 rounded-custom shadow-lg">
+<p class="text-4xl font-bold mb-2">320</p>
+<p class="text-xs font-bold uppercase tracking-widest">Colillas de cigarro</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Impact Figures -->
+<!-- BEGIN: Who is it for -->
+<section class="py-24 bg-offWhite" data-purpose="target-audience">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-center mb-16">¿Para quién es esta guía?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Target 1 -->
+<div class="bg-white p-8 rounded-custom shadow-sm text-center">
+<div class="w-12 h-12 bg-deepBlue/10 text-deepBlue rounded-lg flex items-center justify-center mx-auto mb-6">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold mb-3">Municipios</h3>
+<p class="text-sm opacity-70">Para gestores públicos que buscan metodologías de censo de residuos.</p>
+</div>
+<!-- Target 2 -->
+<div class="bg-white p-8 rounded-custom shadow-sm text-center">
+<div class="w-12 h-12 bg-deepBlue/10 text-deepBlue rounded-lg flex items-center justify-center mx-auto mb-6">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold mb-3">Organizaciones</h3>
+<p class="text-sm opacity-70">Para ONGs ambientales que deseen organizar limpiezas con rigor científico.</p>
+</div>
+<!-- Target 3 -->
+<div class="bg-white p-8 rounded-custom shadow-sm text-center">
+<div class="w-12 h-12 bg-deepBlue/10 text-deepBlue rounded-lg flex items-center justify-center mx-auto mb-6">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold mb-3">Comunidades</h3>
+<p class="text-sm opacity-70">Para grupos de vecinos que quieren cuidar su entorno hídrico local.</p>
+</div>
+<!-- Target 4 -->
+<div class="bg-white p-8 rounded-custom shadow-sm text-center">
+<div class="w-12 h-12 bg-deepBlue/10 text-deepBlue rounded-lg flex items-center justify-center mx-auto mb-6">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h3 class="font-bold mb-3">Educadores</h3>
+<p class="text-sm opacity-70">Para docentes que buscan materiales prácticos de educación ambiental.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Who is it for -->
+<!-- BEGIN: Authors Section -->
+<section class="py-24 bg-white" id="autores">
+<div class="container mx-auto px-6">
+<div class="flex flex-col lg:flex-row gap-16 items-start">
+<div class="lg:w-1/2">
+<span class="bg-deepBlue/10 text-deepBlue px-3 py-1 rounded-full text-[10px] uppercase font-bold">Quiénes lo escribieron</span>
+<h2 class="text-3xl font-bold mt-4 mb-6">Saberes profesionales + activismo territorial</h2>
+<p class="text-lg opacity-80 leading-relaxed mb-12">
+            Este documento nace de la colaboración interdisciplinaria entre expertas en gestión ambiental y el compromiso de los vecinos de Chascomús.
+          </p>
+</div>
+<div class="lg:w-1/2 flex flex-col justify-center gap-6">
+<div class="p-6 rounded-custom bg-offWhite border border-black/5 shadow-sm">
+<h4 class="font-bold text-lg text-deepBlue mb-2">Autoras</h4>
+<p class="text-sm opacity-80 leading-relaxed">Paula Ramírez, Luciana Schoj y Camila Sánchez. Integran el Movimiento Basura Cero Argentina y residen en Chascomús, Provincia de Buenos Aires. Esta guía surge de la unión de sus saberes profesionales y su activismo territorial.</p>
+</div>
+<div class="p-4 border-l-4 border-coralOrange bg-offWhite/30 rounded-r-lg">
+<span class="text-[10px] uppercase font-bold opacity-50 block mb-1">Cámaras y campo</span>
+<p class="font-bold text-sm text-deepBlue">Fotografías: Inés Otero</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Authors Section -->
+<!-- BEGIN: Gallery Section -->
+<section class="py-24 bg-deepBlue" id="galeria">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-bold text-white text-center mb-12">La acción, en imágenes</h2>
+<!-- Main Featured Image -->
+<div class="mb-8 rounded-custom overflow-hidden shadow-2xl">
+<img alt="Grupo de voluntarios" class="w-full h-[500px] object-cover" src="images/destacada.png"/>
+</div>
+<!-- Thumbnails Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="aspect-square rounded-custom overflow-hidden shadow-lg border border-white/10">
+<img alt="Imagen de residuo" class="w-full h-full object-cover" src="images/foto_grilla_1.png"/>
+</div>
+<div class="aspect-square rounded-custom overflow-hidden shadow-lg border border-white/10">
+<img alt="Imagen educativa" class="w-full h-full object-cover" src="images/foto_grilla_2.png"/>
+</div>
+<div class="aspect-square rounded-custom overflow-hidden shadow-lg border border-white/10">
+<img alt="Muestras de agua" class="w-full h-full object-cover" src="images/foto_grilla_3.png"/>
+</div>
+<div class="aspect-square rounded-custom overflow-hidden shadow-lg border border-white/10">
+<img alt="Plásticos reciclables" class="w-full h-full object-cover" src="images/foto_grilla_4.png"/>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Gallery Section -->
+<!-- BEGIN: Call to Action -->
+<section class="py-24 bg-offWhite" data-purpose="final-cta">
+<div class="container mx-auto px-6 max-w-4xl">
+<div class="bg-forestGreen p-12 lg:p-20 rounded-[32px] text-center text-white shadow-2xl relative overflow-hidden">
+<!-- Abstract Decoration -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-48 h-48 bg-coralOrange/20 rounded-full blur-3xl"></div>
+<h2 class="text-3xl lg:text-5xl font-bold mb-8 relative z-10">Descargá la guía y hacela tuya</h2>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<a class="bg-coralOrange hover:bg-[#d45d41] transition-all transform hover:scale-105 text-white px-10 py-5 rounded-custom font-bold shadow-lg" href="#">
+            Descargar PDF
+          </a>
+<button class="bg-white/20 hover:bg-white/30 backdrop-blur-sm transition-all text-white px-10 py-5 rounded-custom font-bold border border-white/30">
+            Compartir la guía
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Call to Action -->
+
+<!-- BEGIN: Contact Section -->
+<section id="contacto">
+  <div class="contact-container">
+
+    <div class="contact-header">
+      <span class="contact-pill">CONTACTO</span>
+      <h2>¿Tenés consultas o querés llevar la metodología a tu territorio?</h2>
+      <p>Escribinos y te respondemos a la brevedad. Somos Punto Tach, desde Chascomús, Buenos Aires.</p>
+    </div>
+
+    <div class="contact-body">
+
+      <!-- FORM -->
+      <form id="contact-form"
+            action="https://formspree.io/f/xzdjanje"
+            method="POST"
+            novalidate>
+
+        <div class="form-row form-row--two">
+          <div class="form-group">
+            <label for="nombre">Nombre <span aria-hidden="true">*</span></label>
+            <input type="text" id="nombre" name="nombre"
+                   placeholder="Tu nombre completo"
+                   required autocomplete="name">
+            <span class="form-error" id="error-nombre"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email"
+                   placeholder="tu@email.com"
+                   required autocomplete="email">
+            <span class="form-error" id="error-email"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="organizacion">Organización / municipio <span class="form-optional">(opcional)</span></label>
+            <input type="text" id="organizacion" name="organizacion"
+                   placeholder="Nombre de tu organización, colectivo o municipio"
+                   autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
+            <textarea id="mensaje" name="mensaje"
+                      placeholder="Contanos tu consulta, de dónde sos y cómo podemos ayudarte..."
+                      rows="5" required minlength="20"></textarea>
+            <span class="form-error" id="error-mensaje"></span>
+          </div>
+        </div>
+
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none">
+
+        <div class="form-row form-row--submit">
+          <button type="submit" id="submit-btn" class="form-submit">
+            <span class="submit-text">Enviar mensaje</span>
+            <span class="submit-loading" aria-hidden="true">Enviando...</span>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- SUCCESS STATE -->
+      <div id="form-success" class="form-success" hidden>
+        <div class="form-success-icon" aria-hidden="true">✓</div>
+        <h3>¡Mensaje enviado!</h3>
+        <p>Gracias por escribirnos. Te respondemos a puntotach@gmail.com en los próximos días.</p>
+      </div>
+
+      <!-- INFO LATERAL -->
+      <div class="contact-info">
+        <div class="contact-info-block">
+          <span class="contact-info-label">Email</span>
+          <a href="mailto:puntotach@gmail.com" class="contact-info-value">
+            puntotach@gmail.com
+          </a>
+        </div>
+        <div class="contact-info-block">
+          <span class="contact-info-label">Instagram</span>
+          <a href="https://instagram.com/puntotach" target="_blank"
+             rel="noopener" class="contact-info-value">@puntotach</a>
+        </div>
+        <div class="contact-info-block">
+          <span class="contact-info-label">Basura Cero Argentina</span>
+          <a href="https://instagram.com/basuracero.argentina" target="_blank"
+             rel="noopener" class="contact-info-value">@basuracero.argentina</a>
+        </div>
+        <div class="contact-info-block">
+          <span class="contact-info-label">Sede</span>
+          <span class="contact-info-value">Chascomús, Buenos Aires, Argentina</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- END: Contact Section -->
+
+<!-- BEGIN: Footer -->
+<footer class="bg-black text-white py-16" data-purpose="site-footer">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<div class="w-8 h-8 bg-forestGreen rounded-md flex items-center justify-center font-bold">L</div>
+<span class="text-lg font-bold tracking-tight">Lagunas Basura Cero</span>
+</div>
+<p class="text-sm opacity-50 max-w-xs">
+            Somos una organización dedicada a la promoción de sistemas circulares y la protección de ecosistemas hídricos a través de la ciencia ciudadana.
+          </p>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-coralOrange">Contacto e IG</h4>
+<ul class="space-y-4 text-sm opacity-70">
+<li><a class="hover:text-coralOrange" href="#">@basuracero.org</a></li>
+<li><a class="hover:text-coralOrange" href="#">@puntotech</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-sm uppercase tracking-widest text-coralOrange">Ubicación</h4>
+<div class="flex items-start gap-3 text-sm opacity-70">
+<svg class="h-5 w-5 mt-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<p>Chascomús, Buenos Aires, Argentina</p>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/10 text-center text-xs opacity-40">
+        © 2024 Basura Cero &amp; Punto Tech. Todos los derechos reservados.
+      </div>
+</div>
+</footer>
+<!-- END: Footer -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('nav-menu');
+    const links = document.querySelectorAll('.nav-link');
+
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !expanded);
+      btn.classList.toggle('is-active');
+      menu.classList.toggle('is-open');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.classList.remove('is-active');
+        menu.classList.remove('is-open');
+      });
+    });
+  });
+
+// ── CONTACT FORM: validation + Formspree async submit ──
+const contactForm   = document.getElementById('contact-form');
+const submitBtn     = document.getElementById('submit-btn');
+const formSuccess   = document.getElementById('form-success');
+
+function showError(fieldId, message) {
+  const input = document.getElementById(fieldId);
+  const error = document.getElementById('error-' + fieldId);
+  if (input)  input.classList.add('invalid');
+  if (error)  error.textContent = message;
+}
+
+function clearErrors() {
+  document.querySelectorAll('.form-group input, .form-group textarea')
+    .forEach(el => el.classList.remove('invalid'));
+  document.querySelectorAll('.form-error')
+    .forEach(el => el.textContent = '');
+}
+
+function validateForm(data) {
+  let valid = true;
+  if (!data.get('nombre').trim()) {
+    showError('nombre', 'Por favor ingresá tu nombre.');
+    valid = false;
+  }
+  const emailVal = data.get('email').trim();
+  if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+    showError('email', 'Ingresá un email válido.');
+    valid = false;
+  }
+  const msg = data.get('mensaje').trim();
+  if (!msg || msg.length < 20) {
+    showError('mensaje', 'El mensaje debe tener al menos 20 caracteres.');
+    valid = false;
+  }
+  return valid;
+}
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+    const data = new FormData(contactForm);
+    if (!validateForm(data)) return;
+
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        contactForm.hidden = true;
+        formSuccess.hidden = false;
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        showError('mensaje', 'Hubo un error al enviar. Intentá de nuevo o escribinos a puntotach@gmail.com');
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+      }
+    } catch {
+      showError('mensaje', 'Sin conexión. Intentá de nuevo en unos minutos.');
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+    }
+  });
+}
+
+</script>
+</body>
+</html>
