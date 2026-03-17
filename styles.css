@@ -701,4 +701,63 @@ a.contact-info-value:hover {
   .modal-btn-secondary, .modal-btn-primary { width: 100%; justify-content: center; }
 }
 
+/* ── COOKIE BANNER ── */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1500;
+  background: #1a4b6e;
+  color: #ffffff;
+  padding: 14px 24px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+#cookie-banner[hidden] { display: none; }
+
+.cookie-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cookie-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+  flex: 1;
+  min-width: 200px;
+}
+
+.cookie-link {
+  color: #e86f51;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.cookie-btn {
+  background: #e86f51;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 9px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.cookie-btn:hover { background: #d45e40; }
+
+@media (max-width: 600px) {
+  .cookie-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cookie-btn { width: 100%; }
+}
+
 

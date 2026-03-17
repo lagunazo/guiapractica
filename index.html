@@ -705,6 +705,24 @@
   </div>
 </section>
 <!-- END: Contact Section -->
+
+<!-- BEGIN: Privacy Policy Section -->
+<section id="privacidad" style="background:#f8f6f1;padding:48px 40px;">
+  <div style="max-width:720px;margin:0 auto;">
+    <h2 style="font-size:20px;font-weight:800;color:#1a4b6e;margin:0 0 16px;">
+      Política de privacidad
+    </h2>
+    <div style="font-size:14px;color:#5a5a5a;line-height:1.75;display:flex;flex-direction:column;gap:12px;">
+      <p><strong>Datos que recopilamos:</strong> Solo los que ingresás voluntariamente en el formulario de contacto (nombre, email, organización y mensaje). No usamos cookies de rastreo, píxeles de seguimiento ni herramientas de analítica.</p>
+      <p><strong>Cómo usamos tus datos:</strong> Únicamente para responder tu consulta. Los mensajes son recibidos a través de Formspree y enviados a puntotach@gmail.com. No compartimos tus datos con terceros ni los usamos con fines comerciales.</p>
+      <p><strong>Almacenamiento:</strong> Este sitio está alojado en GitHub Pages. GitHub puede registrar datos básicos de acceso (IP, navegador) conforme a su <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener" style="color:#1a4b6e;">política de privacidad</a>.</p>
+      <p><strong>Tus derechos:</strong> Podés solicitar la eliminación de tus datos en cualquier momento escribiendo a <a href="mailto:puntotach@gmail.com" style="color:#1a4b6e;">puntotach@gmail.com</a>.</p>
+      <p style="font-size:12px;color:#888;">.Última actualización: marzo 2026 · Chascomús, Buenos Aires, Argentina</p>
+    </div>
+  </div>
+</section>
+<!-- END: Privacy Policy Section -->
+
 <!-- BEGIN: Footer -->
 <footer class="bg-[#111111] py-16 text-white" data-purpose="site-footer">
 <div class="container mx-auto px-6">
@@ -1055,6 +1073,22 @@ if (nav) {
   }, { passive: true });
 }
 
+// ── COOKIE BANNER ──
+(function() {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+  const accepted = localStorage.getItem('privacy-accepted');
+  if (!accepted) {
+    setTimeout(() => { banner.hidden = false; }, 1500);
+  }
+})();
+
+function acceptCookies() {
+  const banner = document.getElementById('cookie-banner');
+  if (banner) banner.hidden = true;
+  try { localStorage.setItem('privacy-accepted', '1'); } catch(e) {}
+}
+
 </script>
 
 <!-- Floating WhatsApp Button -->
@@ -1093,6 +1127,23 @@ if (nav) {
         Descargar PDF
       </a>
     </div>
+  </div>
+</div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="region" aria-label="Aviso de privacidad" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>Privacidad</strong> — Este sitio no usa cookies de rastreo ni publicidad.
+      Al enviar el formulario de contacto, tus datos son procesados por
+      <a href="https://formspree.io/legal/privacy-policy" target="_blank"
+         rel="noopener" class="cookie-link">Formspree</a>
+      conforme a su política de privacidad.
+      <a href="#privacidad" class="cookie-link">Más información</a>
+    </div>
+    <button class="cookie-btn" onclick="acceptCookies()" aria-label="Aceptar y cerrar aviso">
+      Entendido
+    </button>
   </div>
 </div>
 
