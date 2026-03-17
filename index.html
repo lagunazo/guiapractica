@@ -844,22 +844,70 @@ function clearErrors() {
     .forEach(el => el.textContent = '');
 }
 
+// ── RATE LIMITING ──
+const SUBMIT_COOLDOWN_MS = 60000;
+let lastSubmitTime = 0;
+let submitCount = 0;
+const MAX_SUBMITS_PER_SESSION = 3;
+
+// ── IMPROVED validateForm ──
 function validateForm(data) {
   let valid = true;
-  if (!data.get('nombre').trim()) {
-    showError('nombre', 'Por favor ingresá tu nombre.');
+
+  const now = Date.now();
+  if (submitCount >= MAX_SUBMITS_PER_SESSION) {
+    showError('mensaje', 'Límite de envíos alcanzado. Escribinos directamente a puntotach@gmail.com');
+    return false;
+  }
+  if (now - lastSubmitTime < SUBMIT_COOLDOWN_MS && lastSubmitTime !== 0) {
+    const secsLeft = Math.ceil((SUBMIT_COOLDOWN_MS - (now - lastSubmitTime)) / 1000);
+    showError('mensaje', `Esperá ${secsLeft} segundos antes de enviar otro mensaje.`);
+    return false;
+  }
+
+  const nombre = data.get('nombre').trim();
+  if (!nombre || nombre.length < 2) {
+    showError('nombre', 'Ingresá tu nombre completo (mínimo 2 caracteres).');
     valid = false;
   }
+  if (/[<>&"'\/\\]/.test(nombre)) {
+    showError('nombre', 'El nombre contiene caracteres no permitidos.');
+    valid = false;
+  }
+
   const emailVal = data.get('email').trim();
   if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
     showError('email', 'Ingresá un email válido.');
     valid = false;
   }
+
+  const org = data.get('organizacion').trim();
+  if (org && /[<>&"'\/\\]/.test(org)) {
+    showError('mensaje', 'El campo organización contiene caracteres no permitidos.');
+    valid = false;
+  }
+
   const msg = data.get('mensaje').trim();
   if (!msg || msg.length < 20) {
     showError('mensaje', 'El mensaje debe tener al menos 20 caracteres.');
     valid = false;
   }
+  if (msg.length > 2000) {
+    showError('mensaje', 'El mensaje no puede superar los 2000 caracteres.');
+    valid = false;
+  }
+  if (/[<>]/.test(msg)) {
+    showError('mensaje', 'El mensaje contiene caracteres no permitidos.');
+    valid = false;
+  }
+
+  const urlPattern = /(https?:\/\/[^\s]+)/gi;
+  const urlMatches = msg.match(urlPattern) || [];
+  if (urlMatches.length > 2) {
+    showError('mensaje', 'El mensaje contiene demasiados links. Revisalo antes de enviar.');
+    valid = false;
+  }
+
   return valid;
 }
 
@@ -881,6 +929,8 @@ if (contactForm) {
       });
 
       if (res.ok) {
+        lastSubmitTime = Date.now();
+        submitCount++;
         contactForm.hidden = true;
         formSuccess.hidden = false;
         formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
