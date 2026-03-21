@@ -1045,7 +1045,7 @@ function openDownloadModal() {
   if (modal) {
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
-    if (typeof hitCount === 'function') hitCount();
+    hitCount();
     if (typeof gtag !== 'undefined') {
       gtag('event', 'pdf_download', {
         event_category: 'engagement',
@@ -1066,31 +1066,57 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeDownloadModal();
 });
 
-// ── DOWNLOAD COUNTER (CountAPI) ──
-const COUNTER_NAMESPACE = 'lagunasbasuracero';
-const COUNTER_KEY       = 'pdf-downloads';
-const COUNT_API_BASE    = 'https://api.countapi.xyz';
+// ── DOWNLOAD COUNTER (Supabase) ──
+const SB_URL = 'https://yjzgkmiwhxjncofrtuuq.supabase.co';
+const SB_KEY = 'sb_publishable_TqV71ZTh9OGhQ7yr8X_SIg_iDgnUdAb';
+const SB_HEADERS = {
+  'apikey': SB_KEY,
+  'Authorization': 'Bearer ' + SB_KEY,
+  'Content-Type': 'application/json',
+  'Prefer': 'return=representation'
+};
 
 async function fetchCount() {
   try {
-    const res  = await fetch(`${COUNT_API_BASE}/get/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
+    const res  = await fetch(
+      `${SB_URL}/rest/v1/contador?select=valor&limit=1`,
+      { headers: SB_HEADERS }
+    );
     const data = await res.json();
     const el   = document.getElementById('download-count');
-    if (el && data.value !== undefined) {
-      el.textContent = data.value.toLocaleString('es-AR');
+    if (el && data[0] && data[0].valor !== undefined) {
+      el.textContent = data[0].valor.toLocaleString('es-AR');
     }
-  } catch { }
+  } catch(e) {
+    const el = document.getElementById('download-count');
+    if (el) el.textContent = '';
+  }
 }
 
 async function hitCount() {
   try {
-    const res  = await fetch(`${COUNT_API_BASE}/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
-    const data = await res.json();
-    const el   = document.getElementById('download-count');
-    if (el && data.value !== undefined) {
-      el.textContent = data.value.toLocaleString('es-AR');
+    const resGet = await fetch(
+      `${SB_URL}/rest/v1/contador?select=id,valor&limit=1`,
+      { headers: SB_HEADERS }
+    );
+    const rows = await resGet.json();
+    if (!rows || !rows[0]) return;
+    const id       = rows[0].id;
+    const newValor = (rows[0].valor || 0) + 1;
+    const resPatch = await fetch(
+      `${SB_URL}/rest/v1/contador?id=eq.${id}`,
+      {
+        method: 'PATCH',
+        headers: SB_HEADERS,
+        body: JSON.stringify({ valor: newValor })
+      }
+    );
+    const updated = await resPatch.json();
+    const el = document.getElementById('download-count');
+    if (el && updated[0] && updated[0].valor !== undefined) {
+      el.textContent = updated[0].valor.toLocaleString('es-AR');
     }
-  } catch { }
+  } catch(e) { }
 }
 
 fetchCount();
