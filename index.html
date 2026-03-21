@@ -221,6 +221,16 @@
     }
   </style>
   <link rel="stylesheet" href="styles.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0MZ62JBKH7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0MZ62JBKH7', {
+    page_title: 'Guía Práctica de Limpieza de Lagunas',
+    page_location: 'https://lagunasbasuracero.com.ar/'
+  });
+</script>
 </head>
 <body class="bg-offWhite font-sans text-deepBlue">
 
@@ -542,6 +552,18 @@
 <a class="bg-coralOrange hover:bg-[#d45d41] transition-all transform hover:scale-105 text-white px-10 py-5 rounded-custom font-bold shadow-lg" href="javascript:void(0)" onclick="openDownloadModal()">
             Descargar PDF
           </a>
+</div>
+<div class="download-counter" id="download-counter">
+  <span class="download-counter-icon" aria-hidden="true">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+  </span>
+  <span id="download-count">—</span>
+  <span class="download-counter-label">descargas</span>
 </div>
 </div>
 </div>
@@ -935,6 +957,12 @@ if (contactForm) {
         lastSubmitTime = Date.now();
         submitCount++;
         contactForm.hidden = true;
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', {
+            event_category: 'engagement',
+            event_label: 'contact_form'
+          });
+        }
         formSuccess.hidden = false;
         formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
@@ -961,18 +989,30 @@ const WA_URL      = `https://wa.me/?text=${WA_TEXT}`;
 
 document.getElementById('share-whatsapp')?.addEventListener('click', () => {
   window.open(WA_URL, '_blank', 'noopener');
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', { method: 'whatsapp', content_type: 'landing' });
+  }
 });
 
 document.getElementById('share-facebook')?.addEventListener('click', () => {
   window.open(FB_URL, '_blank', 'noopener,width=600,height=400');
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', { method: 'facebook', content_type: 'landing' });
+  }
 });
 
 document.getElementById('share-twitter')?.addEventListener('click', () => {
   window.open(TW_URL, '_blank', 'noopener,width=600,height=400');
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', { method: 'twitter', content_type: 'landing' });
+  }
 });
 
 document.getElementById('share-instagram')?.addEventListener('click', () => {
   window.open('https://instagram.com/puntotach', '_blank', 'noopener');
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', { method: 'instagram', content_type: 'landing' });
+  }
 });
 
 document.getElementById('share-copy')?.addEventListener('click', async () => {
@@ -1004,8 +1044,15 @@ function openDownloadModal() {
   const modal = document.getElementById('download-modal');
   if (modal) {
     modal.hidden = false;
-    modal.querySelector('.modal-box').focus();
     document.body.style.overflow = 'hidden';
+    if (typeof hitCount === 'function') hitCount();
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'pdf_download', {
+        event_category: 'engagement',
+        event_label: 'Guia_practica.pdf',
+        value: 1
+      });
+    }
   }
 }
 function closeDownloadModal() {
@@ -1018,6 +1065,35 @@ function closeDownloadModal() {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeDownloadModal();
 });
+
+// ── DOWNLOAD COUNTER (CountAPI) ──
+const COUNTER_NAMESPACE = 'lagunasbasuracero';
+const COUNTER_KEY       = 'pdf-downloads';
+const COUNT_API_BASE    = 'https://api.countapi.xyz';
+
+async function fetchCount() {
+  try {
+    const res  = await fetch(`${COUNT_API_BASE}/get/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
+    const data = await res.json();
+    const el   = document.getElementById('download-count');
+    if (el && data.value !== undefined) {
+      el.textContent = data.value.toLocaleString('es-AR');
+    }
+  } catch { }
+}
+
+async function hitCount() {
+  try {
+    const res  = await fetch(`${COUNT_API_BASE}/hit/${COUNTER_NAMESPACE}/${COUNTER_KEY}`);
+    const data = await res.json();
+    const el   = document.getElementById('download-count');
+    if (el && data.value !== undefined) {
+      el.textContent = data.value.toLocaleString('es-AR');
+    }
+  } catch { }
+}
+
+fetchCount();
 
 // ── FLOATING WHATSAPP BUTTON OVERLAP PREVENTION ──
 const floatWa = document.querySelector('#whatsapp-float');
